@@ -557,6 +557,8 @@ func AddGDPObj(obj interface{}, k8swq []workqueue.RateLimitingInterface, numWork
 func UpdateGDPObj(old, new interface{}, k8swq []workqueue.RateLimitingInterface, numWorkers uint32) {
 	oldGdp := old.(*gdpalphav2.GlobalDeploymentPolicy)
 	newGdp := new.(*gdpalphav2.GlobalDeploymentPolicy)
+	gslbutils.Logf("*********** old gdp: %v", oldGdp)
+	gslbutils.Logf("*********** new gdp: %v", newGdp)
 	if oldGdp.ObjectMeta.ResourceVersion == newGdp.ObjectMeta.ResourceVersion {
 		return
 	}
